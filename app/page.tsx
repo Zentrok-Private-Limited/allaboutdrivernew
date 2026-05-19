@@ -114,7 +114,7 @@ const HomePage = () => {
               <img
                 src={slide.image}
                 alt={`Slide ${slide.id}`}
-                className="w-full h-[220px] md:h-[500px] object-contain"
+                className="w-full h-55 md:h-125 object-contain"
               />
             </div>
           ))}
@@ -227,13 +227,13 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* SECTION 2: WHAT ARE DEVICE DRIVERS */}
+      {/* WHAT ARE DEVICE DRIVERS */}
       <section className="py-28 px-6 max-w-7xl mx-auto relative">
-        {/* Soft Indigo ambient background shape */}
-        <div className="absolute right-10 bottom-10 w-[450px] h-[450px] bg-indigo-500/5 rounded-full blur-[140px] pointer-events-none" />
+        
+        <div className="absolute right-10 bottom-10 w-112.5 h-112.5 bg-indigo-500/5 rounded-full blur-[140px] pointer-events-none" />
 
         <div className="grid lg:grid-cols-12 gap-16 items-center relative z-10">
-          {/* Left Block: Deep Ocean Typography */}
+          
           <div className="lg:col-span-7 space-y-8">
             <div className="space-y-3">
               <motion.div
@@ -249,7 +249,7 @@ const HomePage = () => {
                 className="text-4xl md:text-5xl font-light text-slate-900 tracking-tight leading-tight"
               >
                 What are{" "}
-                <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 italic bg-clip-text text-transparent drop-shadow-sm">
+                <span className="bg-linear-to-r from-blue-600 via-indigo-600 to-blue-700 italic bg-clip-text text-transparent drop-shadow-sm pr-2">
                   device drivers?
                 </span>
               </motion.h2>
@@ -277,7 +277,7 @@ const HomePage = () => {
             </div>
           </div>
 
-          {/* Right Block: Elegant, Vibrant Blue Material Cards */}
+          
           <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
             {[
               {
@@ -315,7 +315,7 @@ const HomePage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.05 }}
                 whileHover={{ y: -6 }}
-                className={`p-6 rounded-[24px] bg-slate-50/50 border border-slate-100 backdrop-blur-md transition-all duration-300 cursor-pointer ${card.shadow}`}
+                className={`p-6 rounded-3xl bg-slate-50/50 border border-slate-100 backdrop-blur-md transition-all duration-300 cursor-pointer ${card.shadow}`}
               >
                 <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center mb-4 border border-slate-100 shadow-sm">
                   {card.icon}
@@ -332,12 +332,10 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* =========================================================================
-          SECTION 1: WHY DRIVER KNOWLEDGE MATTERS
-         ========================================================================= */}
+      {/* WHY DRIVER KNOWLEDGE MATTERS */}
       <section className="py-24 px-6 max-w-7xl mx-auto border-b border-slate-100 relative">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
-          {/* Left: Content Block */}
+          {/* Left */}
           <div className="lg:col-span-7 space-y-6">
             <div className="space-y-3">
               <span className="text-xs font-bold tracking-[0.25em] text-[#1464D8] uppercase block">
@@ -345,7 +343,7 @@ const HomePage = () => {
               </span>
               <h2 className="text-4xl md:text-5xl font-light text-slate-900 tracking-tight leading-tight">
                 Why driver knowledge{" "}
-                <span className="font-medium italic bg-gradient-to-r from-[#1464D8] to-indigo-600 bg-clip-text text-transparent">
+                <span className="font-medium italic bg-linear-to-r from-[#1464D8] to-indigo-600 bg-clip-text text-transparent pr-2">
                   matters
                 </span>
               </h2>
@@ -357,7 +355,7 @@ const HomePage = () => {
               drivers, they often play a key role in:
             </p>
 
-            {/* Checklist with clean high-contrast icons */}
+            
             <ul className="space-y-3 pt-2">
               {[
                 "Hardware recognition",
@@ -375,7 +373,7 @@ const HomePage = () => {
                 >
                   <CheckCircle2
                     size={18}
-                    className="text-[#1464D8] flex-shrink-0"
+                    className="text-[#1464D8] shrink-0"
                   />
                   {text}
                 </motion.li>
@@ -390,14 +388,14 @@ const HomePage = () => {
             </p>
           </div>
 
-          {/* Right: Premium Tech Graphic Panel */}
+          {/* Right */}
           <div className="lg:col-span-5 relative group">
-            <div className="absolute inset-0 bg-gradient-to-tr from-[#1464D8]/10 to-indigo-500/5 rounded-[32px] blur-xl group-hover:scale-105 transition-transform duration-500" />
-            <div className="relative overflow-hidden rounded-[32px] border border-slate-100 shadow-[0_20px_50px_rgba(20,100,216,0.04)] bg-slate-50 p-2">
+            <div className="absolute inset-0 bg-linear-to-tr from-[#1464D8]/10 to-indigo-500/5 rounded-4xl blur-xl group-hover:scale-105 transition-transform duration-500" />
+            <div className="relative overflow-hidden rounded-4xl border border-slate-100 shadow-[0_20px_50px_rgba(20,100,216,0.04)] bg-slate-50 p-2">
               <img
                 src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop"
                 alt="System Architecture"
-                className="rounded-[26px] object-cover w-full h-[320px] filter grayscale-[15%] contrast-[110%] group-hover:scale-105 transition-transform duration-700"
+                className="rounded-[26px] object-cover w-full h-80 filter grayscale-15 contrast-110 group-hover:scale-105 transition-transform duration-700"
               />
             </div>
           </div>
@@ -409,11 +407,11 @@ const HomePage = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-light text-slate-900 tracking-tight">
             What you can explore on{" "}
-            <span className="italic bg-gradient-to-r bg-blue-600 bg-clip-text text-transparent">
+            <span className="italic bg-linear-to-r bg-blue-600 bg-clip-text text-transparent pr-2">
               all about driver
             </span>
           </h2>
-          <div className="w-12 h-[1px] bg-slate-200 mx-auto mt-6" />
+          <div className="w-12 h-px bg-slate-200 mx-auto mt-6" />
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -468,14 +466,14 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* SECTION 3: HELPFUL TOPICS WE COVER */}
+      {/* HELPFUL TOPICS WE COVER */}
       <section className="py-24 px-6 max-w-7xl mx-auto border-b border-slate-100">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-light text-slate-900 tracking-tight">
             Helpful topics{" "}
             <span className="font-medium italic text-[#1464D8]">we cover</span>
           </h2>
-          <div className="w-12 h-[1px] bg-slate-200 mx-auto mt-6" />
+          <div className="w-12 h-px bg-slate-200 mx-auto mt-6" />
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -522,10 +520,10 @@ const HomePage = () => {
               initial={{ opacity: 0, scale: 0.98 }}
               whileInView={{ opacity: 1, scale: 1 }}
               whileHover={{ y: -4, backgroundColor: "#ffffff" }}
-              className="p-8 rounded-[24px] bg-slate-50/50 border border-slate-100 transition-all duration-300 hover:border-slate-200 hover:shadow-[0_15px_35px_rgba(0,0,0,0.03)] flex gap-5 items-start"
+              className="p-8 rounded-3xl bg-slate-50/50 border border-slate-100 transition-all duration-300 hover:border-slate-200 hover:shadow-[0_15px_35px_rgba(0,0,0,0.03)] flex gap-5 items-start"
             >
               <div
-                className={`w-10 h-10 rounded-xl flex items-center justify-center border shadow-sm flex-shrink-0 ${topic.badge}`}
+                className={`w-10 h-10 rounded-xl flex items-center justify-center border shadow-sm shrink-0 ${topic.badge}`}
               >
                 {topic.icon}
               </div>
@@ -553,7 +551,7 @@ const HomePage = () => {
             {/* Restored to crisp slate-100 for maximum readability against dark blue */}
             <h2 className="text-4xl md:text-5xl font-light text-slate-100 tracking-normal leading-tight">
               Why visitors choose <br />
-              <span className="italic bg-gradient-to-r from-[#1464D8] to-indigo-400 bg-clip-text text-transparent pr-4">
+              <span className="italic bg-linear-to-r from-[#1464D8] to-indigo-400 bg-clip-text text-transparent pr-4">
                 all about driver
               </span>
             </h2>
@@ -597,10 +595,10 @@ const HomePage = () => {
           className="lg:col-span-5 relative group"
         >
           {/* Subtle blue accent shadow glow that blends seamlessly into the dark background canvas */}
-          <div className="absolute inset-0 bg-gradient-to-tr from-[#1464D8]/20 to-indigo-500/10 rounded-[36px] blur-2xl opacity-60 group-hover:scale-105 transition-transform duration-500 pointer-events-none" />
+          <div className="absolute inset-0 bg-linear-to-tr from-[#1464D8]/20 to-indigo-500/10 rounded-[36px] blur-2xl opacity-60 group-hover:scale-105 transition-transform duration-500 pointer-events-none" />
           
           {/* Visual Editorial Card Frame using deep multi-stop gradients */}
-          <div className="relative rounded-[36px] bg-gradient-to-br from-slate-950 via-indigo-950 to-[#1464D8] text-white p-8 md:p-12 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] border border-white/5 overflow-hidden min-h-[380px] flex flex-col justify-between">
+          <div className="relative rounded-[36px] bg-linear-to-br from-slate-950 via-indigo-950 to-[#1464D8] text-white p-8 md:p-12 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] border border-white/5 overflow-hidden min-h-95 flex flex-col justify-between">
             
             {/* Luminous Ambient Light Flares */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-[80px] pointer-events-none" />
@@ -620,7 +618,7 @@ const HomePage = () => {
 
             {/* Team Identity Attribution Tag Row */}
             <div className="relative z-10 flex items-center gap-4 border-t border-white/10 pt-6">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-blue-500 to-indigo-600 border border-white/20 flex items-center justify-center text-xs font-bold text-white shadow-sm flex-shrink-0">
+              <div className="w-10 h-10 rounded-full bg-linear-to-tr from-blue-500 to-indigo-600 border border-white/20 flex items-center justify-center text-xs font-bold text-white shadow-sm shrink-0">
                 ED
               </div>
               <div className="space-y-0.5">
@@ -688,20 +686,20 @@ const HomePage = () => {
               className="group cursor-pointer flex flex-col h-full rounded-[28px] overflow-hidden border border-slate-100 bg-slate-50/30 p-3 transition-all duration-300 hover:bg-white hover:shadow-[0_30px_60px_-20px_rgba(20,100,216,0.08)] hover:border-blue-100"
             >
               {/* Card Image Area Container */}
-              <div className="relative overflow-hidden rounded-[20px] bg-slate-200 aspect-[16/10] mb-6">
+              <div className="relative overflow-hidden rounded-[20px] bg-slate-200 aspect-16/10 mb-6">
                 <img
                   src={post.img}
                   alt={post.title}
-                  className="object-cover w-full h-full filter brightness-[96%] transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover w-full h-full filter brightness-96 transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
 
               {/* Text Layout */}
-              <div className="px-3 pb-4 flex flex-col flex-grow space-y-3">
+              <div className="px-3 pb-4 flex flex-col grow space-y-3">
                 <h3 className="font-semibold text-lg text-slate-900 tracking-tight leading-snug group-hover:text-[#1464D8] transition-colors duration-300">
                   {post.title}
                 </h3>
-                <p className="text-slate-500 text-sm font-light leading-relaxed flex-grow">
+                <p className="text-slate-500 text-sm font-light leading-relaxed grow">
                   {post.desc}
                 </p>
 
@@ -725,9 +723,9 @@ const HomePage = () => {
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-16 p-6 md:p-8 rounded-[24px] bg-amber-50/60 border border-amber-200/70 flex gap-4 items-start max-w-4xl mx-auto"
+          className="mb-16 p-6 md:p-8 rounded-3xl bg-amber-50/60 border border-amber-200/70 flex gap-4 items-start max-w-4xl mx-auto"
         >
-          <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-amber-700 flex-shrink-0 shadow-sm">
+          <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-amber-700 shrink-0 shadow-sm">
             <AlertTriangle size={20} />
           </div>
           <div className="space-y-2">
@@ -750,7 +748,7 @@ const HomePage = () => {
           initial={{ opacity: 0, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="relative rounded-[40px] mx-10 overflow-hidden bg-gradient-to-br from-slate-950 via-blue-950 to-indigo-950 text-white p-12 md:p-16 text-center shadow-[0_30px_60px_-15px_rgba(20,100,216,0.15)] border border-slate-900"
+          className="relative rounded-[40px] mx-10 overflow-hidden bg-linear-to-br from-slate-950 via-blue-950 to-indigo-950 text-white p-12 md:p-16 text-center shadow-[0_30px_60px_-15px_rgba(20,100,216,0.15)] border border-slate-900"
         >
           {/* Luminous internal background accent glow effect */}
           <div className="absolute -top-24 -left-24 w-80 h-80 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
@@ -759,7 +757,7 @@ const HomePage = () => {
           <div className="relative z-10 max-w-2xl mx-auto space-y-6">
             <h2 className="text-4xl md:text-5xl font-light tracking-tight leading-tight text-white">
               Have Questions About{" "}
-              <span className="font-medium italic bg-gradient-to-r from-blue-400 via-indigo-200 to-cyan-300 bg-clip-text text-transparent drop-shadow-sm">
+              <span className="font-medium italic bg-linear-to-r from-blue-400 via-indigo-200 to-cyan-300 bg-clip-text text-transparent drop-shadow-sm pr-2">
                 Driver Topics?
               </span>
             </h2>

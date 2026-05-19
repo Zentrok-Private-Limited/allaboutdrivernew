@@ -224,7 +224,6 @@ export default function AboutPage() {
       
       <section className="py-15 px-6 max-w-7xl mx-auto border-t border-slate-100 relative overflow-hidden">
         
-        {/* Animated Background Vector Shape */}
         <motion.div 
           animate={{ rotate: 360 }} transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
           className="absolute right-0 top-1/2 -translate-y-1/2 w-200 h-200 opacity-[0.02] pointer-events-none"

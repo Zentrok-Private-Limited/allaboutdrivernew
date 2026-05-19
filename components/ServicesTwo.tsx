@@ -39,7 +39,7 @@ export default function ServicesSection() {
   return (
     <section className="py-24 px-8 max-w-7xl mx-auto relative bg-white">
       {/* Soft background radial gradient tuned for light mode */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-50/40 via-transparent to-transparent -z-10 pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-blue-50/40 via-transparent to-transparent -z-10 pointer-events-none" />
 
       {/* Header */}
       <div className="text-center mb-20">
@@ -49,9 +49,9 @@ export default function ServicesSection() {
           transition={{ duration: 0.8 }}
           className="text-4xl md:text-5xl font-light text-slate-900 tracking-tight"
         >
-          Explore <span className="font-medium italic bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">our services</span>
+          Explore <span className="font-medium italic bg-linear-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">our services</span>
         </motion.h2>
-        <div className="w-12 h-[1px] bg-slate-200 mx-auto mt-6" />
+        <div className="w-12 h-px bg-slate-200 mx-auto mt-6" />
       </div>
 
       {/* Grid Container */}
@@ -63,10 +63,10 @@ export default function ServicesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: idx * 0.1, duration: 0.5 }}
             whileHover={{ y: -6, backgroundColor: '#ffffff' }}
-            className={`group bg-slate-50/70 p-10 rounded-[32px] border border-slate-100/80 transition-all duration-300 ${service.hoverGlow}`}
+            className={`group bg-slate-50/70 p-10 rounded-4xl border border-slate-100/80 transition-all duration-300 ${service.hoverGlow}`}
           >
             {/* Icon Container with clear crisp borders */}
-            <div className={`w-14 h-14 ${service.bg} rounded-2xl flex items-center justify-center mb-8 border border-white/50 shadow-sm transition-transform duration-500 group-hover:rotate-[10deg]`}>
+            <div className={`w-14 h-14 ${service.bg} rounded-2xl flex items-center justify-center mb-8 border border-white/50 shadow-sm transition-transform duration-500 group-hover:rotate-10`}>
               <div className={service.color}>
                 {service.icon}
               </div>
@@ -84,7 +84,7 @@ export default function ServicesSection() {
             {/* Interactive Call to Action Line */}
             <div className="mt-8 flex items-center gap-2 text-xs font-bold tracking-wider text-slate-400 group-hover:text-slate-900 transition-colors cursor-pointer">
               LEARN MORE
-              <div className="w-0 group-hover:w-6 h-[1px] bg-slate-900 transition-all duration-300" />
+              <div className="w-0 group-hover:w-6 h-px bg-slate-900 transition-all duration-300" />
             </div>
           </motion.div>
         ))}

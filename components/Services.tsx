@@ -37,9 +37,9 @@ export default function ElegantServiceSection() {
           <motion.span 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            className="text-xs font-bold tracking-[0.25em] text-slate-400 uppercase mb-4 block"
+            className="text-xs font-bold tracking-[0.25em] text-[#1464D8] uppercase mb-4 block"
           >
-            Our Expertise
+            How can we assist you?
           </motion.span>
           <motion.h2 
             initial={{ opacity: 0, y: 10 }}
@@ -47,7 +47,7 @@ export default function ElegantServiceSection() {
             transition={{ duration: 0.8 }}
             className="text-4xl md:text-5xl font-light text-slate-900 tracking-tight leading-tight"
           >
-            How can we <span className="font-medium italic bg-gradient-to-r from-[#1464D8] to-indigo-600 bg-clip-text text-transparent pr-1">assist</span> you today?
+            Schedule a <span className="font-medium italic bg-linear-to-r from-[#1464D8] to-indigo-600 bg-clip-text text-transparent pr-2">service</span> now!
           </motion.h2>
           <p className="mt-5 text-slate-500 font-light text-base md:text-lg max-w-xl mx-auto leading-relaxed">
             Select a category below to book a professional consultation or technical support session.
@@ -63,7 +63,7 @@ export default function ElegantServiceSection() {
               whileInView={{ opacity: 1, y: 0 }}
               whileHover={{ y: -5, backgroundColor: "#ffffff" }}
               transition={{ delay: index * 0.02, duration: 0.4 }}
-              className="group relative bg-slate-50/60 border border-blue-200 rounded-[24px] p-6 flex flex-col items-center text-center transition-all duration-300 hover:border-blue-100 hover:shadow-[0_20px_40px_rgba(20,100,216,0.06)] cursor-pointer"
+              className="group relative bg-slate-50/60 border border-blue-200 rounded-3xl p-6 flex flex-col items-center text-center transition-all duration-300 hover:border-blue-100 hover:shadow-[0_20px_40px_rgba(20,100,216,0.06)] cursor-pointer"
             >
               {/* Icon Ring Wrapper */}
               <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center mb-4 text-[#1464D8] border border-slate-100/80 shadow-sm group-hover:scale-110 group-hover:bg-blue-50/50 transition-all duration-300">
