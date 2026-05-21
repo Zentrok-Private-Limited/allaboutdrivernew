@@ -737,7 +737,7 @@ const HomePage = () => {
               Informational Purpose Only
             </h4>
             <p className="text-xs md:text-sm text-amber-900/80 font-light leading-relaxed">
-              The content provided on Mad About Drivers is intended for general
+              The content provided on All About Driver is intended for general
               informational and educational purposes only. We aim to share
               simplified knowledge about drivers, updates, compatibility, and
               device-related topics. Visitors should always review official
