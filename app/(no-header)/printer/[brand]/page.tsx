@@ -329,33 +329,33 @@ export default function PrinterBrandPage({ params }: Props) {
                 </div>
               </div>
             )}
-{/* STEP 2: CONFIRM DESIGNATED INPUT VALUE */}
-{wizardStep === "CONFIRM_MODEL" && (
-  <div className="space-y-5 py-2">
-    <p className="text-sm font-semibold text-gray-600">
-      Fill the form and download your printer driver
-    </p>
-    <div className="space-y-2">
-      <label className="block text-sm font-bold text-gray-700 uppercase">
-        Model Number
-      </label>
-      <input
-        type="text"
-        value={modelNumber}
-        onChange={(e) => setModelNumber(e.target.value)}
-        placeholder="Enter model number here"
-        className="w-full bg-white border border-gray-300 focus:border-blue-500 rounded-md px-4 py-3 text-sm font-semibold text-gray-700 outline-none transition"
-      />
-    </div>
-    <button
-      onClick={() => setWizardStep("INITIALIZING_SETUP")}
-      disabled={!modelNumber.trim()} 
-      className="w-full bg-[#256BE7] text-white text-sm font-bold py-3.5 rounded-md transition shadow-sm disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-700"
-    >
-      Quick Download & Install Drivers ↓
-    </button>
-  </div>
-)}
+            {/* STEP 2: CONFIRM DESIGNATED INPUT VALUE */}
+            {wizardStep === "CONFIRM_MODEL" && (
+              <div className="space-y-5 py-2">
+                <p className="text-sm font-semibold text-gray-600">
+                  Fill the form and download your printer driver
+                </p>
+                <div className="space-y-2">
+                  <label className="block text-sm font-bold text-gray-700 uppercase">
+                    Model Number
+                  </label>
+                  <input
+                    type="text"
+                    value={modelNumber}
+                    onChange={(e) => setModelNumber(e.target.value)}
+                    placeholder="Enter model number here"
+                    className="w-full bg-white border border-gray-300 focus:border-blue-500 rounded-md px-4 py-3 text-sm font-semibold text-gray-700 outline-none transition"
+                  />
+                </div>
+                <button
+                  onClick={() => setWizardStep("INITIALIZING_SETUP")}
+                  disabled={!modelNumber.trim()}
+                  className="w-full bg-[#256BE7] text-white text-sm font-bold py-3.5 rounded-md transition shadow-sm disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-700"
+                >
+                  Quick Download & Install Drivers ↓
+                </button>
+              </div>
+            )}
 
             {/* NEW STEP 2.5: INITIALIZING LOADER WINDOW MATCHING ATTACHED SCREENSHOT */}
             {wizardStep === "INITIALIZING_SETUP" && (
@@ -503,12 +503,16 @@ export default function PrinterBrandPage({ params }: Props) {
                   <div>
                     {showFirstInstruction && (
                       <p className="text-sm font-semibold text-gray-400 max-w-xs mx-auto mt-1">
-                        1. Check USB cable connected both side
+                        {connectionType === "usb"
+                          ? "1. Check USB cable connected both sides"
+                          : "1. Check if printer is connected to Wi-Fi"}
                       </p>
                     )}
                     {showSecondInstruction && (
                       <p className="text-sm font-semibold text-gray-400 max-w-xs mx-auto mt-1">
-                        2. Check your device driver (USB Port Drivers)
+                        {connectionType === "usb"
+                          ? "2. Check your device driver (USB Port Drivers)"
+                          : "2. Check your router signal or network key configuration"}
                       </p>
                     )}
                   </div>
