@@ -1,6 +1,14 @@
+"use client";
 import React from "react";
 
 function Footer() {
+  
+  const openChat = () => {
+    if (typeof window !== "undefined" && window.jivo_api) {
+      window.jivo_api.open();
+    }
+  };
+
   return (
     <footer className="w-full bg-[#1464D8]/95 text-slate-200 py-16 px-6">
       <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-12 mb-12">
@@ -102,6 +110,12 @@ function Footer() {
           >
             Get in Touch
           </a>
+          <button
+            onClick={openChat}
+            className="mt-2 ml-4 px-6 py-2 rounded-full border border-slate-200 text-white text-xs font-medium hover:bg-white hover:text-[#1464D8] transition-colors"
+          >
+            Chat with Us
+          </button>
         </div>
       </div>
       <div className="max-w-7xl mx-auto border-t border-slate-100/60 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-light">

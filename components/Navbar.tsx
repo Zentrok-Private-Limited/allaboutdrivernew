@@ -18,6 +18,12 @@ export default function Navbar() {
 
   const pathname = usePathname();
 
+  const openChat = () => {
+    if (typeof window !== "undefined" && window.jivo_api) {
+      window.jivo_api.open();
+    }
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
@@ -49,7 +55,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-10">
+          <div className="hidden md:flex items-center gap-8">
             {navItems.map((item, index) => {
               const isActive = pathname === item.href;
 
@@ -74,11 +80,17 @@ export default function Navbar() {
             >
               GET IN TOUCH
             </a>
+            <button
+              onClick={openChat}
+              className="text-white text-[15px] font-semibold hover:cursor-pointer "
+            >
+              Chat With Us
+            </button>
           </div>
 
           {/* Mobile Toggle */}
           <button
-            className="md:hidden text-white"
+            className="md:hidden text-white hover:cursor-pointer"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X size={28} /> : <Menu size={28} />}
@@ -112,12 +124,20 @@ export default function Navbar() {
             );
           })}
 
-          <a
+          <div className="flex flex-col gap-2">
+            <a
             href="/ContactUs"
-            className="w-full bg-white text-[#1464D8] rounded-full py-3 text-sm font-semibold hover:bg-slate-100 transition-all duration-300 px-3 "
+            className="w-1/2 text-center bg-white text-[#1464D8] rounded-full py-3 text-sm font-semibold hover:bg-slate-100 transition-all duration-300 px-3 "
           >
             Get in Touch
           </a>
+          <button
+              onClick={openChat}
+              className="text-white text-sm font-semibold text-start mt-4 px-4 hover:cursor-pointer"
+            >
+              Chat With Us
+            </button>
+          </div>
         </div>
       </div>
     </header>

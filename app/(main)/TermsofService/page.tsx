@@ -528,7 +528,7 @@ export default function TermsOfServicePage() {
                             Email Support: {termsConfig.email}
                           </p>
                           <p className="pt-4 text-base text-slate-800 font-sans font-bold">
-                            Brand owned by <a className="text-[#1464D8] hover:underline" href="https://www.printerservicellc.com">printerservicellc.com</a>
+                            We are an Independent Brand
                           </p>
                         </div>
           </section>

@@ -166,6 +166,12 @@ export default function PrinterBrandPage({ params }: Props) {
     setWizardStep("CLOSED");
     setProgressWidth(0);
   };
+  
+   const openChat = () => {
+    if (typeof window !== "undefined" && window.jivo_api) {
+      window.jivo_api.open();
+    }
+  };
 
   return (
     <main className="min-h-screen bg-white font-sans text-gray-800 antialiased relative">
@@ -584,8 +590,8 @@ export default function PrinterBrandPage({ params }: Props) {
                   >
                     Fix Issue
                   </button>
-                  <button className="bg-[#256be7] text-white text-sm font-bold px-6 py-2.5 rounded-md hover:bg-blue-800 transition">
-                    Need Assistance?
+                  <button onClick={openChat} className="bg-[#256be7] text-white text-sm font-bold px-6 py-2.5 rounded-md hover:bg-blue-800 transition">
+                    Chat Support
                   </button>
                 </div>
               </div>
