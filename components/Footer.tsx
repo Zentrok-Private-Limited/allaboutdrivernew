@@ -65,7 +65,7 @@ function Footer() {
           <ul className="space-y-2 text-sm font-light">
             <li>
               <a
-                href="PrivacyPolicy"
+                href="/PrivacyPolicy"
                 className="hover:text-white transition-colors"
               >
                 Privacy Policy
@@ -73,20 +73,20 @@ function Footer() {
             </li>
             <li>
               <a
-                href="TermsofService"
+                href="/TermsofService"
                 className="hover:text-white transition-colors"
               >
                 Terms of Service
               </a>
             </li>
             <li>
-              <a href="Cookies" className="hover:text-white transition-colors">
+              <a href="/Cookies" className="hover:text-white transition-colors">
                 Cookie Policy
               </a>
             </li>
             <li>
               <a
-                href="Disclaimer"
+                href="/Disclaimer"
                 className="hover:text-white transition-colors"
               >
                 Disclaimer
