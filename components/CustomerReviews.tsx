@@ -8,7 +8,7 @@ export default function CustomerReviews() {
     { name: "James", text: "Experience was very informative and professional.", date: "2 months ago", initial: "J", color: "bg-orange-500" },
     { name: "Twina", text: "Printer drivers updated and network printing configured without issues. Technician was patient and explained troubleshooting tips clearly. Reliable ...", date: "2 months ago", initial: "T", color: "bg-purple-700", hasSeeMore: true },
     { name: "Shirley", text: "Geek Autobuzz took care of me in great fashion today! Thanks for the awesome help!!!", date: "2 months ago", initial: "S", color: "bg-rose-600" },
-    { name: "Rod", text: "PC Packard removed adware and optimized browser settings; browsing is faster and cleaner. Honest, professional, and helpful team.", date: "2 months ago", initial: "R", color: "bg-slate-400" },
+    { name: "Rod", text: "All About Driver has removed adware and optimized browser settings; browsing is faster and cleaner. Honest, professional, and helpful team.", date: "2 months ago", initial: "R", color: "bg-slate-400" },
   ];
 
   return (

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Search,
   CheckSquare,
@@ -12,8 +12,35 @@ import {
   Link,
 } from "lucide-react";
 import ScannerCarouselTwo from "@/components/ScannerCarouseltwo";
+import { useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
+
 export default function SelectPrinterSoftware() {
   const [searchQuery, setSearchQuery] = useState("");
+  const searchParams = useSearchParams();
+    const router = useRouter();
+  
+  
+    // Auto-populate the search box on initial load if present in the URL
+    useEffect(() => {
+      const modelFromUrl = searchParams.get("model");
+      if (modelFromUrl) {
+        setSearchQuery(decodeURIComponent(modelFromUrl));
+      }
+    }, [searchParams]);
+  
+    const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+  
+    if (!searchQuery.trim()) return;
+  
+    const slug = searchQuery
+      .trim()
+      .replace(/\s+/g, "-");
+  
+    router.push(`/select-printer-setup/${slug}`);
+  };
+  
   
   const openChat = () => {
     if (typeof window !== "undefined" && window.jivo_api) {
@@ -65,8 +92,11 @@ export default function SelectPrinterSoftware() {
                 correct setup instructions.
               </p>
 
-              {/* Functional Mock Search Component */}
-              <div className="flex w-full max-w-xl bg-white rounded-md shadow-lg overflow-hidden border border-transparent focus-within:border-purple-300 transition-all">
+              {/* Functional Dynamic Search Component */}
+              <form
+                onSubmit={handleSearchSubmit}
+                className="flex w-full max-w-xl bg-white rounded-md shadow-lg overflow-hidden border border-transparent focus-within:border-purple-300 transition-all"
+              >
                 <input
                   type="text"
                   value={searchQuery}
@@ -74,10 +104,13 @@ export default function SelectPrinterSoftware() {
                   placeholder='Enter your printer model number. Ex: "LaserJet Pro 400..."'
                   className="w-full px-4 py-3.5 text-slate-800 placeholder-slate-400 text-xs md:text-sm outline-none font-normal"
                 />
-                <button className="bg-[#1B75F2] hover:bg-[#1460ca] text-white px-6 font-semibold text-xs md:text-sm tracking-wide transition shrink-0">
+                <button
+                  type="submit"
+                  className="bg-[#1B75F2] hover:bg-[#1460ca] text-white px-6 font-semibold text-xs md:text-sm tracking-wide transition shrink-0"
+                >
                   Search
                 </button>
-              </div>
+              </form>
             </div>
           </div>
 
