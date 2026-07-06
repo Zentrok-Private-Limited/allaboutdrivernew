@@ -231,16 +231,6 @@ export default function SelectPrinterSoftware() {
           </p>
         </div>
       </div>
-
-      {/* FIXED SCROLL TO TOP FLOATING COMPONENT BUTTON MOCK */}
-      <div className="fixed bottom-6 right-6 z-50">
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="bg-[#00BCD4] hover:bg-[#0097A7] text-white p-3 rounded-md shadow-lg transition-all transform hover:-translate-y-0.5 flex items-center justify-center"
-        >
-          <ArrowUp className="w-5 h-5 stroke-[2.5]" />
-        </button>
-      </div>
     </div>
   );
 }

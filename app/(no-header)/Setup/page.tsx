@@ -7,7 +7,6 @@ import StreamlineSection from "@/components/StreamlineSection";
 import OutsourcingSection from "@/components/OutsourcingSection";
 import DriversSection from "@/components/DriversSection";
 import ElementsSection from "@/components/ElementsSection";
-import ScrollToTop from "@/components/ScrollToTop";
 import CompatibilityAndOrder from "@/components/CompatibilityAndOrder";
 import CustomerReviews from "@/components/CustomerReviews";
 import ScannerCarouselTwo from "@/components/ScannerCarouseltwo";
@@ -24,7 +23,6 @@ export default function Home() {
       <OutsourcingSection />
       <DriversSection />
       <ElementsSection />
-      <ScrollToTop />
       <CompatibilityAndOrder />
       <CustomerReviews />
       
