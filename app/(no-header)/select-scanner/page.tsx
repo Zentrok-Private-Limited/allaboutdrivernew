@@ -18,31 +18,27 @@ import { useRouter } from "next/navigation";
 
 export default function SelectPrinterSoftware() {
   const [searchQuery, setSearchQuery] = useState("");
-  const searchParams = useSearchParams();
-    const router = useRouter();
-  
-  
-    // Auto-populate the search box on initial load if present in the URL
-    useEffect(() => {
-      const modelFromUrl = searchParams.get("model");
-      if (modelFromUrl) {
-        setSearchQuery(decodeURIComponent(modelFromUrl));
-      }
-    }, [searchParams]);
-  
-    const handleSearchSubmit = (e: React.FormEvent) => {
+  const router = useRouter();
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const model = params.get("model");
+
+    if (model) {
+      setSearchQuery(decodeURIComponent(model));
+    }
+  }, []);
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-  
+
     if (!searchQuery.trim()) return;
-  
-    const slug = searchQuery
-      .trim()
-      .replace(/\s+/g, "-");
-  
+
+    const slug = searchQuery.trim().replace(/\s+/g, "-");
+
     router.push(`/select-scanner/${slug}`);
   };
-  
-  
+
   const openChat = () => {
     if (typeof window !== "undefined" && window.jivo_api) {
       window.jivo_api.open();
@@ -133,10 +129,12 @@ export default function SelectPrinterSoftware() {
         {/* Left Side Content */}
         <div className="lg:col-span-6 space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold text-[#1762c0] tracking-tight">
-           What's Wrong With Your Scanner?
+            What's Wrong With Your Scanner?
           </h2>
           <p className="text-slate-900 text-sm md:text-lg leading-relaxed">
-            If your scanner won't scan or isn't found, it's probably because of program or connection issues that are easy to fix. When you know these reasons, you can quickly get back to scanning.
+            If your scanner won't scan or isn't found, it's probably because of
+            program or connection issues that are easy to fix. When you know
+            these reasons, you can quickly get back to scanning.
           </p>
 
           {/* Checklist items dynamic mapping */}
@@ -172,15 +170,22 @@ export default function SelectPrinterSoftware() {
           </h2>
           <div className="space-y-4 text-slate-900 text-xs md:text-lg leading-relaxed font-normal">
             <p>
-              Is your scanner not working or not showing up in your list of devices? We've made it easy to check links, update drivers, and fix software problems. Just follow the steps below.
+              Is your scanner not working or not showing up in your list of
+              devices? We've made it easy to check links, update drivers, and
+              fix software problems. Just follow the steps below.
             </p>
             <p>
-              On both Windows and macOS, these steps work for all major brands, such as HP, Canon, Epson, and Brother.
+              On both Windows and macOS, these steps work for all major brands,
+              such as HP, Canon, Epson, and Brother.
             </p>
             <p>
-              Our live chat support team is ready to help you if you need more help.
+              Our live chat support team is ready to help you if you need more
+              help.
             </p>
-            <button onClick={openChat} className="px-8 py-3 bg-[#3cb4ff] text-white font-medium rounded-sm shadow-md hover:bg-[#2fa3ee] transition-all">
+            <button
+              onClick={openChat}
+              className="px-8 py-3 bg-[#3cb4ff] text-white font-medium rounded-sm shadow-md hover:bg-[#2fa3ee] transition-all"
+            >
               Chat With Us
             </button>
           </div>
@@ -189,7 +194,7 @@ export default function SelectPrinterSoftware() {
 
       {/* 5. CAROUSEL PROMO SLIDER CARD SECTION */}
       <ScannerCarouselTwo />
-      <CustomerReviews/>
+      <CustomerReviews />
 
       <div className="max-w-5xl mx-auto bg-white border border-slate-200/70 rounded-3xl p-8 md:p-12 px-6 md:px-16 shadow-2xl shadow-black/30 mb-10">
         <h3 className="text-2xl font-bold text-slate-900 text-center tracking-wide mb-6 uppercase">

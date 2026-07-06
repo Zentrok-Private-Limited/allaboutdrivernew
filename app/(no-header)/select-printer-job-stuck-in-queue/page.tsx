@@ -18,17 +18,18 @@ import { useRouter } from "next/navigation";
 
 export default function SelectPrinterSoftware() {
   const [searchQuery, setSearchQuery] = useState("");
-  const searchParams = useSearchParams();
     const router = useRouter();
   
   
     // Auto-populate the search box on initial load if present in the URL
     useEffect(() => {
-      const modelFromUrl = searchParams.get("model");
-      if (modelFromUrl) {
-        setSearchQuery(decodeURIComponent(modelFromUrl));
-      }
-    }, [searchParams]);
+  const params = new URLSearchParams(window.location.search);
+  const model = params.get("model");
+
+  if (model) {
+    setSearchQuery(decodeURIComponent(model));
+  }
+}, []);
   
     const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();

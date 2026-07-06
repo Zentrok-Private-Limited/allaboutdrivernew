@@ -18,32 +18,31 @@ import { useRouter } from "next/navigation";
 
 export default function SelectPrinterSoftware() {
   const [searchQuery, setSearchQuery] = useState("");
-  const searchParams = useSearchParams();
   const router = useRouter();
-  
+
   const openChat = () => {
     if (typeof window !== "undefined" && window.jivo_api) {
       window.jivo_api.open();
     }
   };
 
-    // Auto-populate the search box on initial load if present in the URL
-    useEffect(() => {
-      const modelFromUrl = searchParams.get("model");
-      if (modelFromUrl) {
-        setSearchQuery(decodeURIComponent(modelFromUrl));
-      }
-    }, [searchParams]);
-  
-    const handleSearchSubmit = (e: React.FormEvent) => {
+  // Auto-populate the search box on initial load if present in the URL
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const model = params.get("model");
+
+    if (model) {
+      setSearchQuery(decodeURIComponent(model));
+    }
+  }, []);
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-  
+
     if (!searchQuery.trim()) return;
-  
-    const slug = searchQuery
-      .trim()
-      .replace(/\s+/g, "-");
-  
+
+    const slug = searchQuery.trim().replace(/\s+/g, "-");
+
     router.push(`/select-wireless-printer/${slug}`);
   };
 
@@ -134,7 +133,9 @@ export default function SelectPrinterSoftware() {
             What's Wrong With Your Wireless Printer?
           </h2>
           <p className="text-slate-900 text-sm md:text-lg leading-relaxed">
-            Problems with your wireless link can be annoying, but the good news is that most of the time they are caused by easy fixes you can do yourself. Most of the time, these are the things that cause it:
+            Problems with your wireless link can be annoying, but the good news
+            is that most of the time they are caused by easy fixes you can do
+            yourself. Most of the time, these are the things that cause it:
           </p>
 
           {/* Checklist items dynamic mapping */}
@@ -170,15 +171,23 @@ export default function SelectPrinterSoftware() {
           </h2>
           <div className="space-y-4 text-slate-900 text-xs md:text-lg leading-relaxed font-normal">
             <p>
-              Are you having trouble with your wireless printer? Is it not connecting or staying offline? Don't worry, our simple, step-by-step guide will show you how to check your network, fix your drivers, and join again.
+              Are you having trouble with your wireless printer? Is it not
+              connecting or staying offline? Don't worry, our simple,
+              step-by-step guide will show you how to check your network, fix
+              your drivers, and join again.
             </p>
             <p>
-              It works with well-known names like Brother, HP, Canon, Epson, and more.
+              It works with well-known names like Brother, HP, Canon, Epson, and
+              more.
             </p>
             <p>
-              Need some extra help? You can get personalized help by chatting online with our support team.
+              Need some extra help? You can get personalized help by chatting
+              online with our support team.
             </p>
-            <button onClick={openChat} className="px-8 py-3 bg-[#3cb4ff] text-white font-medium rounded-sm shadow-md hover:bg-[#2fa3ee] transition-all">
+            <button
+              onClick={openChat}
+              className="px-8 py-3 bg-[#3cb4ff] text-white font-medium rounded-sm shadow-md hover:bg-[#2fa3ee] transition-all"
+            >
               Chat With Us
             </button>
           </div>
@@ -187,7 +196,7 @@ export default function SelectPrinterSoftware() {
 
       {/* 5. CAROUSEL PROMO SLIDER CARD SECTION */}
       <ScannerCarouselTwo />
-      <CustomerReviews/>
+      <CustomerReviews />
 
       <div className="max-w-5xl mx-auto bg-white border border-slate-200/70 rounded-3xl p-8 md:p-12 px-6 md:px-16 shadow-2xl shadow-black/30 mb-10">
         <h3 className="text-2xl font-bold text-slate-900 text-center tracking-wide mb-6 uppercase">

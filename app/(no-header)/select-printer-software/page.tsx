@@ -15,32 +15,29 @@ import ScannerCarousel from "@/components/ScannerCarousel";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 
-
 export default function SelectPrinterSoftware() {
   const [searchQuery, setSearchQuery] = useState("");
-  const searchParams = useSearchParams();
   const router = useRouter();
-
 
   // Auto-populate the search box on initial load if present in the URL
   useEffect(() => {
-    const modelFromUrl = searchParams.get("model");
-    if (modelFromUrl) {
-      setSearchQuery(decodeURIComponent(modelFromUrl));
+    const params = new URLSearchParams(window.location.search);
+    const model = params.get("model");
+
+    if (model) {
+      setSearchQuery(decodeURIComponent(model));
     }
-  }, [searchParams]);
+  }, []);
 
   const handleSearchSubmit = (e: React.FormEvent) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  if (!searchQuery.trim()) return;
+    if (!searchQuery.trim()) return;
 
-  const slug = searchQuery
-    .trim()
-    .replace(/\s+/g, "-");
+    const slug = searchQuery.trim().replace(/\s+/g, "-");
 
-  router.push(`/select-printer-software/${slug}`);
-};
+    router.push(`/select-printer-software/${slug}`);
+  };
 
   const benefitsListOne = [
     "Works with a wide range of printers and compatible devices.",

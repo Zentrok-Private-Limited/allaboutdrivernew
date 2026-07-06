@@ -17,31 +17,28 @@ import { useRouter } from "next/navigation";
 
 export default function SelectPrinterSoftware() {
   const [searchQuery, setSearchQuery] = useState("");
-  const searchParams = useSearchParams();
-    const router = useRouter();
-  
-  
-    // Auto-populate the search box on initial load if present in the URL
-    useEffect(() => {
-      const modelFromUrl = searchParams.get("model");
-      if (modelFromUrl) {
-        setSearchQuery(decodeURIComponent(modelFromUrl));
-      }
-    }, [searchParams]);
-  
-    const handleSearchSubmit = (e: React.FormEvent) => {
+  const router = useRouter();
+
+  // Auto-populate the search box on initial load if present in the URL
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const model = params.get("model");
+
+    if (model) {
+      setSearchQuery(decodeURIComponent(model));
+    }
+  }, []);
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-  
+
     if (!searchQuery.trim()) return;
-  
-    const slug = searchQuery
-      .trim()
-      .replace(/\s+/g, "-");
-  
+
+    const slug = searchQuery.trim().replace(/\s+/g, "-");
+
     router.push(`/select-printer-setup/${slug}`);
   };
-  
-  
+
   const openChat = () => {
     if (typeof window !== "undefined" && window.jivo_api) {
       window.jivo_api.open();
@@ -185,7 +182,10 @@ export default function SelectPrinterSoftware() {
               Are you still stuck? For prompt, individualized assistance, chat
               with our support staff.
             </p>
-            <button onClick={openChat} className="px-8 py-3 bg-[#3cb4ff] text-white font-medium rounded-sm shadow-md hover:bg-[#2fa3ee] transition-all">
+            <button
+              onClick={openChat}
+              className="px-8 py-3 bg-[#3cb4ff] text-white font-medium rounded-sm shadow-md hover:bg-[#2fa3ee] transition-all"
+            >
               Chat With Us
             </button>
           </div>
