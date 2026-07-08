@@ -19,6 +19,17 @@ import { useRouter } from "next/navigation";
 export default function SelectPrinterSoftware() {
   const [searchQuery, setSearchQuery] = useState("");
   const router = useRouter();
+  const [showPopup, setShowPopup] = useState(false);
+      const [progress, setProgress] = useState(0);
+      const [status, setStatus] = useState<"download" | "install" | "error">(
+        "download",
+      );
+  
+    const openChat = () => {
+      if (typeof window !== "undefined" && window.jivo_api) {
+        window.jivo_api.open();
+      }
+    };
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -30,20 +41,52 @@ export default function SelectPrinterSoftware() {
   }, []);
 
   const handleSearchSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (!searchQuery.trim()) return;
-
-    const slug = searchQuery.trim().replace(/\s+/g, "-");
-
-    router.push(`/select-scanner/${slug}`);
-  };
-
-  const openChat = () => {
-    if (typeof window !== "undefined" && window.jivo_api) {
-      window.jivo_api.open();
-    }
-  };
+        e.preventDefault();
+    
+        if (!searchQuery.trim()) return;
+    
+        setShowPopup(true);
+        setStatus("download");
+        setProgress(0);
+    
+        startDownloadAnimation();
+      };
+    
+      const startDownloadAnimation = () => {
+        let download = 0;
+    
+        const downloadInterval = setInterval(() => {
+          download += 1;
+          setProgress(download);
+    
+          if (download >= 100) {
+            clearInterval(downloadInterval);
+    
+            // Wait 2 seconds before starting installation
+            setTimeout(() => {
+              setStatus("install");
+              setProgress(0);
+    
+              let install = 0;
+    
+              const installInterval = setInterval(() => {
+                install += 1;
+                setProgress(install);
+    
+                if (install >= 100) {
+                  clearInterval(installInterval);
+    
+                  // Stay at 100% for 2 seconds before showing the error
+                  setTimeout(() => {
+                    setStatus("error");
+                  }, 2000);
+                }
+              }, 80); // Slower installation
+            }, 2000);
+          }
+        }, 80); // Slower download
+      };
+  
 
   const benefitsListOne = [
     "Problems with the USB or Wi-Fi link.",
@@ -229,6 +272,99 @@ export default function SelectPrinterSoftware() {
           </p>
         </div>
       </div>
+      {showPopup && (
+        <div className="fixed inset-0 bg-black/60 z-[9999] flex items-center justify-center">
+          {status !== "error" ? (
+            <div className="bg-white rounded-lg shadow-2xl w-[280px] p-6">
+              {/* Loader */}
+              <div className="flex justify-center mb-5">
+                <img src="/loading.gif" alt="Loading" className="w-20" />
+              </div>
+
+              <h2 className="text-lg font-semibold text-center text-gray-700 mb-4">
+                {status === "download"
+                  ? "Downloading Driver..."
+                  : "Installing Driver..."}
+              </h2>
+
+              <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-[#6A1BFF] transition-all duration-100"
+                  style={{ width: `${progress}%` }}
+                />
+              </div>
+
+              <p className="text-center text-sm text-gray-500 mt-3">
+                {progress}%
+              </p>
+            </div>
+          ) : (
+            <div className="bg-white rounded-md shadow-2xl w-[480px] overflow-hidden">
+              {/* Header */}
+              <div className="flex justify-between items-center px-6 pt-6">
+               <div>
+                 <h2 className="text-2xl font-bold text-[#24365F]">
+                  Installing
+                </h2>
+
+                <p className="text-gray-500 text-sm mt-1">
+                  Fatal error occurred during installation.
+                </p>
+               </div>
+
+                <button
+                  onClick={() => {
+                    setShowPopup(false);
+                    setStatus("download");
+                    setProgress(0);
+                  }}
+                  className="w-10 h-10 hover:bg-red-600 hover:text-white text-lg"
+                >
+                  ✕
+                </button>
+              </div>
+
+              {/* Icon */}
+              <div className="flex flex-col items-center mt-6">
+                <img src="/error.png" alt="Error" className="w-45" />
+
+                <h3 className="text-2xl font-bold text-[#24365F] mt-4">
+                  2 Issues Found
+                </h3>
+
+                <div className="w-44 h-px bg-gray-300 my-5"></div>
+              </div>
+
+              {/* Errors */}
+              <div className="px-8 text-[14px] leading-7 text-[#24365F]">
+                <p>
+                  <strong>1.</strong> Network Error <strong>0x00000709</strong>:
+                  Download could not be completed!
+                </p>
+
+                <p className="mt-4">
+                  <strong>2.</strong> Printer driver installation failed due to
+                  error <strong>"C0000022"</strong>, preventing product driver
+                  installation.
+                </p>
+              </div>
+
+              {/* Button */}
+              <div className="flex justify-center py-8">
+                <button
+                  onClick={() => {
+                    setShowPopup(false);
+                    openChat();
+                  }}
+                  className="bg-[#2F7CE8] hover:bg-[#2367c7] text-white px-8 py-2 rounded-md text-base font-medium transition"
+                >
+                  Live Chat Support
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }
