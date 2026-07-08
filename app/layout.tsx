@@ -43,7 +43,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col">
         <Script
-          src="//code.jivosite.com/widget/EJqXgVTtZ9" 
+          src="//code.jivosite.com/widget/XTs1LY3ZMo" 
           strategy="afterInteractive"
         />
         {children}

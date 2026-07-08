@@ -293,7 +293,7 @@ export default function SelectPrinterSoftware() {
           ) : (
             <div className="bg-white rounded-md shadow-2xl w-[480px] overflow-hidden">
               {/* Header */}
-              <div className="flex justify-between items-center px-6 pt-6">
+              <div className="px-6 pt-6">
                <div>
                  <h2 className="text-2xl font-bold text-[#24365F]">
                   Installing
@@ -303,17 +303,6 @@ export default function SelectPrinterSoftware() {
                   Fatal error occurred during installation.
                 </p>
                </div>
-
-                <button
-                  onClick={() => {
-                    setShowPopup(false);
-                    setStatus("download");
-                    setProgress(0);
-                  }}
-                  className="w-10 h-10 hover:bg-red-600 hover:text-white text-lg"
-                >
-                  ✕
-                </button>
               </div>
 
               {/* Icon */}
@@ -345,7 +334,6 @@ export default function SelectPrinterSoftware() {
               <div className="flex justify-center py-8">
                 <button
                   onClick={() => {
-                    setShowPopup(false);
                     openChat();
                   }}
                   className="bg-[#2F7CE8] hover:bg-[#2367c7] text-white px-8 py-2 rounded-md text-base font-medium transition"
