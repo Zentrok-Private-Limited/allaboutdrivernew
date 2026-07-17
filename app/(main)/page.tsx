@@ -31,11 +31,11 @@ const HomePage = () => {
   const slides: Slide[] = [
     {
       id: 1,
-      image: "/FinalSlider1.png",
+      image: "/slide1.png",
     },
     {
       id: 2,
-      image: "/FinalSlider2.png",
+      image: "/slide2.png",
     },
   ];
 
@@ -90,7 +90,7 @@ const HomePage = () => {
       <div className="relative w-full overflow-hidden">
         {/* Slides */}
         <div
-          className="flex transition-transform duration-700 ease-in-out border"
+          className="flex transition-transform duration-700 ease-in-out"
           style={{
             transform: `translateX(-${currentIndex * 100}%)`,
           }}
@@ -100,7 +100,7 @@ const HomePage = () => {
               <img
                 src={slide.image}
                 alt={`Slide ${slide.id}`}
-                className="w-full h-40 md:h-145 object-containmd:object-cover"
+                className="w-full h-20 md:h-80 object-containmd:object-cover"
               />
             </div>
           ))}
