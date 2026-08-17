@@ -1,6 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 import {
   CheckCircle2,
   ChevronRight,
@@ -163,10 +164,16 @@ export default function SetupPrinterPage() {
   const printer =
     searchParams.get("printer") || "LaserJet Pro 400";
 
-  const chatLink = "https://wa.me/15307917775";
   const bookingLink = "/ContactUs";
 
   return (
+    <Suspense
+      fallback={
+        <div className="flex min-h-screen items-center justify-center">
+          Loading...
+        </div>
+      }
+    >
     <main className="min-h-screen bg-white text-gray-900">
 
       {/* ================= HERO ================= */}
@@ -538,5 +545,6 @@ export default function SetupPrinterPage() {
       </div>
 
     </main>
+    </Suspense>
   );
 }
