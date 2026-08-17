@@ -158,7 +158,7 @@ function Feature({
   );
 }
 
-export default function SetupPrinterPage() {
+function SetupPrinterContent() {
   const searchParams = useSearchParams();
 
   const printer =
@@ -167,13 +167,6 @@ export default function SetupPrinterPage() {
   const bookingLink = "/ContactUs";
 
   return (
-    <Suspense
-      fallback={
-        <div className="flex min-h-screen items-center justify-center">
-          Loading...
-        </div>
-      }
-    >
     <main className="min-h-screen bg-white text-gray-900">
 
       {/* ================= HERO ================= */}
@@ -545,6 +538,19 @@ export default function SetupPrinterPage() {
       </div>
 
     </main>
+  );
+}
+
+export default function SetupPrinterPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex min-h-screen items-center justify-center">
+          Loading...
+        </div>
+      }
+    >
+      <SetupPrinterContent />
     </Suspense>
   );
 }
