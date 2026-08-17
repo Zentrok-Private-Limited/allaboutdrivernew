@@ -41,17 +41,16 @@ export default function SelectPrinterSoftware() {
     }
   }, []);
 
-  const handleSearchSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+const handleSearchSubmit = (e: React.FormEvent) => {
+  e.preventDefault();
 
-    if (!searchQuery.trim()) return;
+  if (!searchQuery.trim()) return;
 
-    setShowPopup(true);
-    setStatus("download");
-    setProgress(0);
+  window.location.href = `/setup-printer?printer=${encodeURIComponent(
+    searchQuery.trim()
+  )}`;
+};
 
-    startDownloadAnimation();
-  };
 
   const startDownloadAnimation = () => {
     let download = 0;
